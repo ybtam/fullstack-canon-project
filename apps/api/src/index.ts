@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {buildSchema} from "type-graphql";
 import {TestQueryResolver} from "@graphql/test/resolvers/query-resolver";
 import {createYoga} from "graphql-yoga";
