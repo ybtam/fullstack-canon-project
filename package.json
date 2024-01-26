@@ -14,5 +14,9 @@
   "license": "ISC",
   "devDependencies": {
     "turbo": "^1.11.3"
+  },
+  "dependencies": {
+    "@changesets/cli": "^2.27.1",
+    "add": "^2.0.6"
   }
 }
