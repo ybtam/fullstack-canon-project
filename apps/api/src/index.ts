@@ -2,6 +2,7 @@ import "reflect-metadata";
 import {buildSchema} from "type-graphql";
 import {TestQueryResolver} from "@graphql/test/resolvers/query-resolver";
 import {createYoga} from "graphql-yoga";
+import * as bun from "bun";
 
 async function bootstrap() {
   const schema = await buildSchema({
@@ -11,7 +12,7 @@ async function bootstrap() {
   // Create a Yoga instance with a GraphQL schema.
   const yoga = createYoga({ schema })
 
-  const server = Bun.serve({
+  const server = bun.serve({
     fetch: yoga,
     port: 4000,
   });
