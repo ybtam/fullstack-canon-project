@@ -1,12 +1,12 @@
 {
   "name": "api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "private": true,
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": " tsx watch src/index.ts"
+    "dev": " bun --watch src/index.ts"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "type-graphql": "^2.0.0-beta.6"
   },
   "devDependencies": {
-    "tsx": "^4.7.0"
+    "@types/bun": "^1.0.4",
+    "bun-types": "latest"
   }
 }

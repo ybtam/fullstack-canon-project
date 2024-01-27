@@ -9,6 +9,10 @@
     "dev:apps": "turbo run dev --filter='./apps/*'",
     "dev:packages": "turbo run dev --filter='./packages/*'"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
