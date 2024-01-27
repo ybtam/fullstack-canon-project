@@ -2,7 +2,6 @@ import "reflect-metadata";
 import {buildSchema} from "type-graphql";
 import {TestQueryResolver} from "@graphql/test/resolvers/query-resolver";
 import {createYoga} from "graphql-yoga";
-import { createServer } from 'node:http'
 
 async function bootstrap() {
   const schema = await buildSchema({
@@ -12,13 +11,17 @@ async function bootstrap() {
   // Create a Yoga instance with a GraphQL schema.
   const yoga = createYoga({ schema })
 
-// Pass it into a server to hook into request handlers.
-  const server = createServer(yoga)
+  const server = Bun.serve({
+    fetch: yoga,
+    port: 4000,
+  });
 
-// Start the server and you're done!
-  server.listen(4000, () => {
-    console.info('Server is running on http://localhost:4000/graphql')
-  })
+  console.info(
+    `Server is running on ${new URL(
+      yoga.graphqlEndpoint,
+      `http://${server.hostname}:${server.port}`
+    )}`
+  )
 }
 
 bootstrap()
