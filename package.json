@@ -9,14 +9,22 @@
     "dev:apps": "turbo run dev --filter='./apps/*'",
     "dev:packages": "turbo run dev --filter='./packages/*'"
   },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "turbo": "^1.11.3"
+    "turbo": "^1.11.3",
+    "bun-types": "latest"
   },
   "dependencies": {
     "@changesets/cli": "^2.27.1",
     "add": "^2.0.6"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
   }
 }
