@@ -1,5 +1,5 @@
-import {getClient} from "@/lib/apollo/server-client";
-import {graphql} from "codegen-web";
+import { getClient } from '@/lib/apollo/server-client'
+import { graphql } from 'codegen-web'
 
 export default async function Home() {
   const { data } = await getClient().query({
@@ -8,11 +8,11 @@ export default async function Home() {
         testQuery
       }
     `),
-  });
+  })
 
   return (
-    <div className={"h-svh"}>
+    <div className={'h-svh'}>
       <p>{data.testQuery}</p>
     </div>
-  );
+  )
 }

@@ -1,6 +1,6 @@
-import "reflect-metadata";
 import {createServer} from "@/utils/create-server";
 import { buildHTTPExecutor } from "@graphql-tools/executor-http";
+import "reflect-metadata";
 
 export const createExecutor = async () => {
   const yoga = await createServer()

@@ -7,18 +7,18 @@ import { configDefaults } from 'vitest/config'
 export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
-    reporters: ['html'],
     coverage: {
-      reporter: ['html'],
-      reportsDirectory: '.coverage',
       enabled: true,
-      provider: 'istanbul',
       exclude: [
         ...configDefaults.exclude,
         "**/html/**",
         "**/src/index.ts",
         "**/test/utils/**",
-      ]
-    }
+      ],
+      provider: 'istanbul',
+      reporter: ['html'],
+      reportsDirectory: '.coverage'
+    },
+    reporters: ['html']
   }
 })

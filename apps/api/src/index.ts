@@ -1,6 +1,6 @@
-import "reflect-metadata";
-import * as bun from "bun";
 import {createServer} from "@/utils/create-server";
+import * as bun from "bun";
+import "reflect-metadata";
 
 async function bootstrap() {
   // Create a Yoga instance with a GraphQL schema.

@@ -2,13 +2,14 @@
 
 import type { NormalizedCacheObject } from '@apollo/client'
 import type { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
+
+import { createHttpLink } from '@/lib/apollo/link'
 import {
   ApolloNextAppProvider,
   NextSSRApolloClient,
   NextSSRInMemoryCache,
 } from '@apollo/experimental-nextjs-app-support/ssr'
 import React from 'react'
-import {createHttpLink} from "@/lib/apollo/link";
 
 function makeClient(cookie?: RequestCookie): NextSSRApolloClient<NormalizedCacheObject> {
   const token = cookie ? `Bearer ${cookie.value}` : ''
@@ -29,8 +30,6 @@ export default function ApolloWrapper({
   cookie?: RequestCookie
 }) {
   return (
-    <ApolloNextAppProvider makeClient={() => makeClient(cookie)}>
-      {children}
-    </ApolloNextAppProvider>
+    <ApolloNextAppProvider makeClient={() => makeClient(cookie)}>{children}</ApolloNextAppProvider>
   )
 }

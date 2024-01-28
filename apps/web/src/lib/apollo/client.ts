@@ -1,6 +1,7 @@
 import type { RequestCookie } from 'next/dist/compiled/@edge-runtime/cookies'
+
+import { createHttpLink } from '@/lib/apollo/link'
 import { ApolloClient, InMemoryCache } from '@apollo/client'
-import {createHttpLink} from "@/lib/apollo/link";
 
 export const apolloClient = (cookie?: RequestCookie) => {
   const token = cookie ? `Bearer ${cookie.value}` : ''

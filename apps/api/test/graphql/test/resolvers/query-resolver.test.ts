@@ -1,10 +1,9 @@
-import 'reflect-metadata';
-
-import {test, expect, beforeAll} from "vitest"
+import { AsyncExecutor } from '@graphql-tools/utils';
 import {graphql} from "codegen-api";
+import 'reflect-metadata';
 import {assertSingleValue} from "test/utils/assert-result";
 import {createExecutor} from "test/utils/executor";
-import { AsyncExecutor } from '@graphql-tools/utils';
+import {beforeAll, expect, test} from "vitest"
 
 let executor: AsyncExecutor;
 
