@@ -11,8 +11,8 @@ export default async function Home() {
   });
 
   return (
-    <>
+    <div className={"h-svh"}>
       <p>{data.testQuery}</p>
-    </>
+    </div>
   );
 }
