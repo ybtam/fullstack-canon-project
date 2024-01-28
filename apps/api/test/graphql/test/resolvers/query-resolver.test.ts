@@ -1,26 +1,19 @@
 import 'reflect-metadata';
 
-import {test, expect} from "vitest"
-import {createServer} from "@/utils/create-server";
-import { buildHTTPExecutor } from '@graphql-tools/executor-http'
+import {test, expect, beforeAll} from "vitest"
 import {graphql} from "codegen-api";
+import {assertSingleValue} from "test/utils/assert-result";
+import {createExecutor} from "test/utils/executor";
+import { AsyncExecutor } from '@graphql-tools/utils';
 
-function assertSingleValue<TValue extends object>(
-  value: TValue | AsyncIterable<TValue>
-): asserts value is TValue {
-  if (Symbol.asyncIterator in value) {
-    throw new Error('Expected single value')
-  }
-}
+let executor: AsyncExecutor;
+
+beforeAll(async () => {
+  executor = await createExecutor()
+})
+
 
 test("testQuery should return 'Hello World!'", async () => {
-  const yoga = await createServer()
-
-  const executor = buildHTTPExecutor({
-    endpoint: 'http://localhost:4000/graphql',
-    fetch: yoga.fetch,
-  })
-
   const result  = await executor({
     document: graphql(`
     query TestQuery {
