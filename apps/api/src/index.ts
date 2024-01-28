@@ -1,17 +1,10 @@
 import "reflect-metadata";
-import {buildSchema} from "type-graphql";
-import {TestQueryResolver} from "@graphql/test/resolvers/query-resolver";
-import {createYoga} from "graphql-yoga";
 import * as bun from "bun";
+import {createServer} from "@/utils/create-server";
 
 async function bootstrap() {
-  const schema = await buildSchema({
-    emitSchemaFile: true,
-    resolvers: [ TestQueryResolver ],
-  })
-
   // Create a Yoga instance with a GraphQL schema.
-  const yoga = createYoga({ schema })
+  const yoga = await createServer()
 
   const server = bun.serve({
     fetch: yoga,
