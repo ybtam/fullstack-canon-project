@@ -6,6 +6,7 @@ import * as bun from "bun";
 
 async function bootstrap() {
   const schema = await buildSchema({
+    emitSchemaFile: true,
     resolvers: [ TestQueryResolver ],
   })
 
