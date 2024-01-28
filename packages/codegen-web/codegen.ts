@@ -7,8 +7,8 @@ const config: CodegenConfig = {
     'src/': {
       preset: 'client',
       documents: [
-          '../../apps/web/**/*.tsx',
-          '../../apps/web/**/*.ts',
+          '../../apps/web/src/**/*.tsx',
+          '../../apps/web/src/**/*.ts',
       ]
     }
   }
