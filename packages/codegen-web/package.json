@@ -1,9 +1,9 @@
 {
   "name": "codegen-web",
   "module": "src/index.ts",
-  "main": "src/index.ts",
-  "types": "src/index.ts",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "build": "bun build ./src/index.ts --outdir ./dist",
     "dev": "bun graphql-codegen --watch"
