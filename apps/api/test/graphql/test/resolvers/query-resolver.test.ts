@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import {test, expect} from "vitest"
 import {createServer} from "@/utils/create-server";
 import { buildHTTPExecutor } from '@graphql-tools/executor-http'
-import {parse} from "graphql/language";
+import {graphql} from "codegen-api";
 
 function assertSingleValue<TValue extends object>(
   value: TValue | AsyncIterable<TValue>
@@ -22,8 +22,8 @@ test("testQuery should return 'Hello World!'", async () => {
   })
 
   const result  = await executor({
-    document: parse(`
-    query {
+    document: graphql(`
+    query TestQuery {
       testQuery
     }
     `)

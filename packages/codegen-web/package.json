@@ -6,7 +6,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist",
     "dev": "bun graphql-codegen --watch"
   },
   "devDependencies": {
