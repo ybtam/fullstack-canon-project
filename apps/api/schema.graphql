@@ -3,6 +3,14 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Mutation {
+  createTest(name: String!): Test!
+}
+
 type Query {
   testQuery: String!
+}
+
+type Test {
+  name: String!
 }
