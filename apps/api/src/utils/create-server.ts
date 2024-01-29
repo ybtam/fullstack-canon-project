@@ -1,18 +1,27 @@
 import OrmConnect from "@/utils/orm-connect";
-import {TestQueryResolver} from "@graphql/test/resolvers/query-resolver";
+import {testResolvers} from "@graphql/test/resolvers";
+import { EntityManager } from "@mikro-orm/postgresql";
 import {createYoga} from "graphql-yoga";
 import { buildSchema } from "type-graphql";
+
+export type myContext = {
+  em: EntityManager,
+  request: Request
+}
+
 
 export async function createServer() {
   const schema = await buildSchema({
     emitSchemaFile: true,
-    resolvers: [TestQueryResolver]
+    resolvers: [
+      ...testResolvers
+    ]
   })
 
   const orm = await new OrmConnect().connect();
 
   return createYoga({
-    context: async ({ request }) => ({ em:  orm.em.fork(), request}),
+    context: async ({ request }): Promise<myContext> => ({ em:  orm.em.fork(), request}),
     schema
   })
 }3
