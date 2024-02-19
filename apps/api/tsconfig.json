@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "maxNodeModuleJsDepth": 10,
-    "module": "CommonJS",
+    "module": "ESNext",
     "moduleResolution": "node",
     "outDir": "./dist",
     "strict": true,
@@ -11,15 +11,15 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
-    "target": "es2020",
+    "target": "ESNext",
     "lib": [
-      "es2020",
+      "ESNext",
       "esnext.asynciterable"
     ],
     "paths": {
       "@/*": ["./src/*"],
       "@graphql/*": ["./src/graphql/*"],
-      "utility/*": ["./src/utility/*"],
+      "utility/*": ["./src/utils/*"],
       "test/*": ["./test/*"]
     }
   },

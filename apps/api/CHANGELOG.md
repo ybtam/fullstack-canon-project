@@ -1,5 +1,11 @@
 # api
 
+## 0.3.0
+
+### Minor Changes
+
+- link the api to a db
+
 ## 0.2.0
 
 ### Minor Changes
